@@ -1,21 +1,15 @@
-import { beforeAll, describe, expect, it, vi } from "vitest";
-import { render, screen } from "@testing-library/react";
+import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
+import { cleanup, render, screen } from "@testing-library/react";
+import { userEvent } from "@testing-library/user-event";
 import Header from "./header";
 import "@testing-library/jest-dom/vitest";
 
-// Mock clipboard API
-const mockClipboard = {
-  writeText: vi.fn(),
-};
-
-Object.defineProperty(navigator, "clipboard", {
-  value: mockClipboard,
-  writable: true,
-});
-
 describe("the UI", () => {
-  beforeAll(() => {
+  beforeEach(() => {
     render(<Header />);
+  });
+  afterEach(() => {
+    cleanup();
   });
   it("shows a header with my name", () => {
     const nameHeader = screen.getByText("Rory Doak");
@@ -34,9 +28,42 @@ describe("the UI", () => {
 });
 
 describe("the header interactions", () => {
-  it.todo("a user can copy the email", () => {});
+  beforeEach(() => {
+    render(<Header />);
+  });
+  afterEach(() => {
+    cleanup();
+  });
+  it("a user can copy the email", async () => {
+    const user = userEvent.setup();
+    const emailText = "rory.doak@gmail.com";
+    const clipboardSpy = vi.spyOn(navigator.clipboard, "writeText");
 
-  it.todo("a user can copy the github link", () => {});
+    const emailLink = screen.getByText(emailText);
+    await user.click(emailLink);
 
-  it.todo("a user can copy the repo link");
+    expect(clipboardSpy).toBeCalledWith(emailText);
+  });
+
+  it("a user can copy the github link", async () => {
+    const user = userEvent.setup();
+    const profileText = "Github profile";
+    const clipboardSpy = vi.spyOn(navigator.clipboard, "writeText");
+
+    const profileLink = screen.getByText(profileText);
+    await user.click(profileLink);
+
+    expect(clipboardSpy).toBeCalledWith("https://github.com/RODO94");
+  });
+
+  it.todo("a user can copy the repo link", async () => {
+    const user = userEvent.setup();
+    const repoText = "Project repo";
+    const clipboardSpy = vi.spyOn(navigator.clipboard, "writeText");
+
+    const repoLink = screen.getByText(repoText);
+    await user.click(repoLink);
+
+    expect(clipboardSpy).toBeCalledWith("https://github.com/RODO94/poller");
+  });
 });
