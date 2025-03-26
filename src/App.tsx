@@ -1,5 +1,13 @@
+import Header from "./components/page/Header/header";
+import { Toaster } from "./components/ui/sonner";
+
 function App() {
-  return <p>starter</p>;
+  return (
+    <>
+      <Header />
+      <Toaster />
+    </>
+  );
 }
 
 export default App;
