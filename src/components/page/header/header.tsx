@@ -1,4 +1,4 @@
-import CopyLink from "@/components/ui/CopyLink";
+import CopyLink from "../../ui/CopyLink";
 
 export default function Header() {
   const textColumnStyles = "flex flex-col";
