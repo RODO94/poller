@@ -1,15 +1,16 @@
-import { beforeEach, describe } from "vitest";
 import Hero from "./Hero";
-import { cleanup, render } from "@testing-library/react";
-
+import { cleanup, render, screen } from "@testing-library/react";
 describe("the UI", () => {
   beforeEach(() => {
     render(<Hero />);
   });
-  beforeEach(() => {
+  afterEach(() => {
     cleanup();
   });
 
-  it.todo("should display a central message");
-  it.todo("should be displayed with high contrast");
+  it("should display a central message", () => {
+    screen.debug();
+    const title = screen.getByRole("heading", { name: "Lasagne is a pie" });
+    expect(title).toBeInTheDocument();
+  });
 });

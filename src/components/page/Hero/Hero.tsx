@@ -1,8 +1,8 @@
 export default function Hero() {
   return (
     <section className="w-full flex px-12 py-6 justify-center items-start gap-2.5">
-      <div className="w-full flex flex-col justify-start items-center gap-6">
-        <h2 className="text-h2 font-bold">Topic to discuss</h2>
+      <div className="w-full flex flex-col justify-start items-center gap-9">
+        <h2 className="text-h2 font-bold opacity-80">Topic to discuss</h2>
         <h1 className="text-3xl font-bold tracking-[0.08rem]">
           Lasagne is a pie
         </h1>
