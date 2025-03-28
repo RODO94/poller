@@ -1,8 +1,9 @@
-type Reaction = {
-  emoji: string;
-};
+export type Emojis = "fire" | "smile" | "heart";
 
-type Profile = {
+export type ReactionTracker = Record<Emojis, number>;
+export type UserReactions = Record<Emojis, boolean>;
+
+export type Profile = {
   picture: string;
   id: string;
 };
@@ -12,9 +13,13 @@ type BaseMessage = {
   date: string;
 };
 
-interface Message extends BaseMessage {
-  userReactions: Reaction[];
-  otherReactions: Reaction[];
+export type ReactionSet = {
+  userReactions: UserReactions;
+  allReactions: ReactionTracker;
+};
+
+export interface Message extends BaseMessage {
+  reactions: ReactionSet;
 }
 
 export interface Chat {

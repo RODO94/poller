@@ -1,4 +1,10 @@
-export default function ReactionTracker() {
+import { type ReactionTracker } from "@/types/chat";
+
+export default function ReactionTracker({
+  reactions: { fire, smile, heart },
+}: {
+  reactions: ReactionTracker;
+}) {
   /**
    * A reaction tracker should take in a list
    * of reactions and display the relevant
@@ -6,5 +12,6 @@ export default function ReactionTracker() {
    * of reactions a message has
    * received
    */
-  return;
+  const total = fire + heart + smile;
+  return <>{total}</>;
 }

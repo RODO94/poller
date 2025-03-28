@@ -1,4 +1,15 @@
-export default function Message() {
+import { type Message } from "@/types/chat";
+import ReactionBar from "./ReactionBar";
+
+type MessageProps = {
+  message: Message;
+  isUserMessage: boolean;
+};
+
+export default function Message({
+  message: { text, date, reactions },
+  isUserMessage,
+}: MessageProps) {
   /**
    * A Message should take in:
    * Text
@@ -7,5 +18,12 @@ export default function Message() {
    * Reactions by others
    * Reactions by the user
    */
-  return;
+  return (
+    <>
+      <p>{text}</p>
+      <p>{date}</p>
+      <p>{isUserMessage}</p>
+      <ReactionBar reactions={reactions} />
+    </>
+  );
 }
