@@ -23,6 +23,7 @@ export interface Message extends BaseMessage {
 }
 
 export interface Chat {
+  id: string;
   message: Message;
   profile: Profile;
 }

@@ -1,14 +1,14 @@
 import { Chat, Profile } from "@/types/chat";
 
-const profileOne: Profile = {
+export const profileOne: Profile = {
   picture: "",
   id: "1",
 };
-const profileTwo: Profile = {
+export const profileTwo: Profile = {
   picture: "",
   id: "2",
 };
-const profileThree: Profile = {
+export const profileThree: Profile = {
   picture: "",
   id: "3",
 };
@@ -17,6 +17,7 @@ const dateNow = new Date(Date.now()).toLocaleString();
 
 export const staticChatData: Chat[] = [
   {
+    id: "1",
     message: {
       text: "This is a new message from profile one",
       date: dateNow,
@@ -28,6 +29,7 @@ export const staticChatData: Chat[] = [
     profile: profileOne,
   },
   {
+    id: "2",
     message: {
       text: "Another message but this time it is from profile two",
       date: dateNow,
@@ -39,6 +41,7 @@ export const staticChatData: Chat[] = [
     profile: profileTwo,
   },
   {
+    id: "3",
     message: {
       text: "The last mocked message comes from the profile of value three",
       date: dateNow,
