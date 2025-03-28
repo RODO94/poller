@@ -6,6 +6,7 @@ import {
 } from "@/data/mockChatData";
 import { Chat, Emojis, Profile } from "@/types/chat";
 import { create } from "zustand";
+import { updateChatReaction } from "./utils";
 
 type State = {
   chatHistory: Chat[];
@@ -19,7 +20,7 @@ type Actions = {
   removeEmoji: (emoji: Emojis, chatId: Chat["id"]) => void;
 };
 
-export const useStore = create<State & Actions>((set) => ({
+export const useStore = create<State & Actions>((set, get) => ({
   chatHistory: staticChatData,
   users: [profileOne, profileTwo, profileThree],
   currentUser: { picture: "", id: "user" },
@@ -29,10 +30,22 @@ export const useStore = create<State & Actions>((set) => ({
   },
 
   addEmoji: (emoji, chatId) => {
-    console.log(emoji, chatId);
+    const updatedChatHistory = updateChatReaction(
+      get().chatHistory,
+      chatId,
+      emoji,
+      "add"
+    );
+    set({ chatHistory: updatedChatHistory });
   },
 
   removeEmoji: (emoji, chatId) => {
-    console.log(emoji, chatId);
+    const updatedChatHistory = updateChatReaction(
+        get().chatHistory,
+        chatId,
+        emoji,
+        "remove"
+      );
+      set({ chatHistory: updatedChatHistory });
   },
 }));
