@@ -1,5 +1,5 @@
 import { cleanup, render, screen } from "@testing-library/react";
-import Hero from "./hero";
+import Hero from "./Hero";
 describe("the UI", () => {
   beforeEach(() => {
     render(<Hero />);
