@@ -3,6 +3,8 @@ export type Emojis = "fire" | "smile" | "heart";
 export type ReactionTracker = Record<Emojis, number>;
 export type UserReactions = Record<Emojis, boolean>;
 
+export type EmojiActions = "add" | "remove";
+
 export type Profile = {
   picture: string;
   id: string;

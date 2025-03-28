@@ -1,10 +1,16 @@
-import { Chat, Emojis, ReactionTracker, UserReactions } from "@/types/chat";
+import {
+  Chat,
+  EmojiActions,
+  Emojis,
+  ReactionTracker,
+  UserReactions,
+} from "@/types/chat";
 
 export const updateChatReaction = (
   chatHistory: Chat[],
   targetId: Chat["id"],
   emoji: Emojis,
-  action: "add" | "remove"
+  action: EmojiActions
 ): Chat[] => {
   const updatedChatHistory = chatHistory.map((chat: Chat) => {
     if (chat.id !== targetId) return chat;
@@ -37,7 +43,7 @@ export const updateChatReaction = (
 };
 
 const updateUserEmojiReaction = (
-  action: "add" | "remove",
+  action: EmojiActions,
   emoji: Emojis,
   userReactions: UserReactions
 ): UserReactions => {
