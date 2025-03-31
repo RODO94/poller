@@ -1,5 +1,5 @@
 import ChatCard from "@/components/ui/ChatCard";
-import { staticChatData } from "@/data/mockChatData";
+import { useStore } from "@/store/store";
 import { type Chat } from "@/types/chat";
 
 export default function Chat() {
@@ -19,13 +19,16 @@ It should receive an array of messages
    * ---- Emoji
    *
    */
+
+  const messageIdList = useStore((state) => state.messageIdList);
+
   return (
-    <>
-      {staticChatData.map(({ message, profile }) => {
-        return (
-          <ChatCard key={Math.random()} message={message} profile={profile} />
-        );
+    <section
+      className={`px-12 py-2.5 inline-flex flex-col justify-center items-start gap-4`}
+    >
+      {messageIdList.map((id) => {
+        return <ChatCard key={Math.random()} id={id} />;
       })}
-    </>
+    </section>
   );
 }

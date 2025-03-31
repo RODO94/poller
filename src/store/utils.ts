@@ -1,45 +1,29 @@
 import {
-  Chat,
   EmojiActions,
   Emojis,
+  ReactionSet,
   ReactionTracker,
   UserReactions,
 } from "@/types/chat";
 
 export const updateChatReaction = (
-  chatHistory: Chat[],
-  targetId: Chat["id"],
+  reactions: ReactionSet,
   emoji: Emojis,
   action: EmojiActions
-): Chat[] => {
-  const updatedChatHistory = chatHistory.map((chat: Chat) => {
-    if (chat.id !== targetId) return chat;
+): ReactionSet => {
+  const newUserReactions = updateUserEmojiReaction(
+    action,
+    emoji,
+    reactions.userReactions
+  );
 
-    const newUserReactions = updateUserEmojiReaction(
-      action,
-      emoji,
-      chat.message.reactions.userReactions
-    );
+  const newReactionTracker = updateReactionTracker(
+    action,
+    emoji,
+    reactions.allReactions
+  );
 
-    const newReactionTracker = updateReactionTracker(
-      action,
-      emoji,
-      chat.message.reactions.allReactions
-    );
-    const newChat: Chat = {
-      ...chat,
-      message: {
-        ...chat.message,
-        reactions: {
-          userReactions: newUserReactions,
-          allReactions: newReactionTracker,
-        },
-      },
-    };
-
-    return newChat;
-  });
-  return updatedChatHistory;
+  return { userReactions: newUserReactions, allReactions: newReactionTracker };
 };
 
 const updateUserEmojiReaction = (

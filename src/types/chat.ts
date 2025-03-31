@@ -10,6 +10,8 @@ export type Profile = {
   id: string;
 };
 
+export type MessageId = string;
+
 type BaseMessage = {
   text: string;
   date: string;
@@ -24,8 +26,10 @@ export interface Message extends BaseMessage {
   reactions: ReactionSet;
 }
 
+export type MessageList = Record<MessageId, Chat>;
+export type ChatList = MessageId[];
+
 export interface Chat {
-  id: string;
   message: Message;
   profile: Profile;
 }
