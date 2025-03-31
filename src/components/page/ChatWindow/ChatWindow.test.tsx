@@ -1,5 +1,5 @@
 import { render, screen, within } from "@testing-library/react";
-import Chat from "./Chat";
+import Chat from "./ChatWindow";
 import userEvent from "@testing-library/user-event";
 import { useStore } from "../../../store/store";
 import { messageIdList, staticMessageList } from "../../../data/mockChatData";

@@ -1,3 +1,4 @@
+import path from "path";
 import { defineConfig } from "vitest/config";
 
 export default defineConfig({
@@ -6,5 +7,10 @@ export default defineConfig({
     css: true,
     setupFiles: ["./setup-tests.js"],
     environment: "jsdom",
+  },
+  resolve: {
+    alias: {
+      "@": path.resolve(__dirname, "./src"),
+    },
   },
 });
