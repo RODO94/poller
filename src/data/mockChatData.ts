@@ -28,18 +28,18 @@ export const staticMessageList: MessageList = {
       date: dateNow,
       reactions: {
         allReactions: { fire: 1, smile: 0, heart: 1 },
-        userReactions: { fire: true, smile: false, heart: true },
+        userReactions: { fire: false, smile: false, heart: false },
       },
     },
     profile: profileOne,
   },
   "2": {
     message: {
-      text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+      text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
       date: dateNow,
       reactions: {
         allReactions: { fire: 4, smile: 1, heart: 5 },
-        userReactions: { fire: true, smile: true, heart: false },
+        userReactions: { fire: false, smile: false, heart: false },
       },
     },
     profile: profileTwo,
@@ -50,7 +50,7 @@ export const staticMessageList: MessageList = {
       date: dateNow,
       reactions: {
         allReactions: { fire: 0, smile: 1, heart: 1 },
-        userReactions: { fire: false, smile: true, heart: true },
+        userReactions: { fire: false, smile: false, heart: false },
       },
     },
     profile: userProfile,
