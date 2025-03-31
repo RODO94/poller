@@ -1,7 +1,7 @@
 import { MessageId, type Emojis } from "@/types/chat";
 import { Flame, Smile, Heart } from "lucide-react";
 import { JSX } from "react";
-import { useStore } from "@/store/store";
+import { useStore } from "../../store/store";
 
 export default function Emoji({
   messageId,
@@ -34,9 +34,27 @@ export default function Emoji({
 
   const emojiStroke = isActive ? "yellow" : "grey";
   const emojiSet: Record<Emojis, JSX.Element> = {
-    fire: <Flame size={"12"} stroke={emojiStroke} />,
-    heart: <Heart size={"12"} stroke={emojiStroke} />,
-    smile: <Smile size={"12"} stroke={emojiStroke} />,
+    fire: (
+      <Flame
+        data-testid={`${messageId}-fire-icon`}
+        size={"12"}
+        stroke={emojiStroke}
+      />
+    ),
+    heart: (
+      <Heart
+        data-testid={`${messageId}-heart-icon`}
+        size={"12"}
+        stroke={emojiStroke}
+      />
+    ),
+    smile: (
+      <Smile
+        data-testid={`${messageId}-smile-icon`}
+        size={"12"}
+        stroke={emojiStroke}
+      />
+    ),
   };
 
   return (

@@ -28,7 +28,7 @@ export const staticMessageList: MessageList = {
       date: dateNow,
       reactions: {
         allReactions: { fire: 1, smile: 0, heart: 1 },
-        userReactions: { fire: false, smile: false, heart: false },
+        userReactions: { fire: false, smile: true, heart: false },
       },
     },
     profile: profileOne,

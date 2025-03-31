@@ -1,10 +1,10 @@
 import {
   messageIdList,
   profileOne,
-  profileThree,
   profileTwo,
   staticMessageList,
-} from "@/data/mockChatData";
+  userProfile,
+} from "../data/mockChatData";
 import {
   ChatList,
   Emojis,
@@ -30,8 +30,8 @@ export const useStore = create<State>()(
   immer((set) => ({
     messageIdList: messageIdList,
     messageList: staticMessageList,
-    users: [profileOne, profileTwo, profileThree],
-    currentUser: { picture: "", id: "user" },
+    users: [profileOne, profileTwo, userProfile],
+    currentUser: { picture: "", id: "99" },
 
     addMessage: (newMessageId: MessageId) => {
       set((state) => ({
