@@ -1,8 +1,9 @@
 import { Emojis, MessageId, ReactionSet } from "@/types/chat";
-import ReactionTracker from "./ReactionTracker";
-import Emoji from "./Emoji";
+import { ReactionTracker } from "./ReactionTracker";
+import { Emoji } from "./Emoji";
+import { memo } from "react";
 
-export default function ReactionBar({
+export const ReactionBar = memo(function ReactionBar({
   messageId,
   reactions: { userReactions, allReactions },
 }: {
@@ -30,4 +31,4 @@ export default function ReactionBar({
       <ReactionTracker reactions={allReactions} />
     </article>
   );
-}
+});

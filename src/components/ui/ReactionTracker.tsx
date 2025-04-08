@@ -1,9 +1,10 @@
-import { type ReactionTracker } from "@/types/chat";
+import { ReactionCount } from "@/types/chat";
+import { memo } from "react";
 
-export default function ReactionTracker({
+export const ReactionTracker = memo(function ReactionTracker({
   reactions: { fire, smile, heart },
 }: {
-  reactions: ReactionTracker;
+  reactions: ReactionCount;
 }) {
   const testId = Math.random().toPrecision(2);
   const total = fire + heart + smile;
@@ -36,4 +37,4 @@ export default function ReactionTracker({
       <p className="text-[8px] pl-1">{total > 0 ? total : null}</p>
     </div>
   );
-}
+});

@@ -1,6 +1,6 @@
 export type Emojis = "fire" | "smile" | "heart";
 
-export type ReactionTracker = Record<Emojis, number>;
+export type ReactionCount = Record<Emojis, number>;
 export type UserReactions = Record<Emojis, boolean>;
 
 export type EmojiActions = "add" | "remove";
@@ -19,7 +19,7 @@ type BaseMessage = {
 
 export type ReactionSet = {
   userReactions: UserReactions;
-  allReactions: ReactionTracker;
+  allReactions: ReactionCount;
 };
 
 export interface Message extends BaseMessage {
