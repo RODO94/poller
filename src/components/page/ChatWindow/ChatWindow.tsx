@@ -6,7 +6,7 @@ export default function Chat() {
   const messageIdList = useStore((state) => state.messageIdList);
   return (
     <section
-      className={`px-12 py-2.5 inline-flex flex-col justify-center items-start gap-4`}
+      className={`px-8 py-2.5 inline-flex flex-col justify-center items-start gap-4`}
     >
       {messageIdList.map((id) => {
         return <ChatCard key={Math.random()} id={id} />;
