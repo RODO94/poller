@@ -28,9 +28,11 @@ export default function MessageInput() {
   });
 
   const isMessageInputEmpty = Boolean(!values.message);
+  const rowNumber = Math.floor(values.message.length / 50) + 1;
+  const maxRows = 5;
 
   return (
-    <section className="flex flex-row justify-between w-full px-16 py-4 items-center gap-2.5">
+    <section className="flex flex-row justify-between w-full px-8 py-4 items-center gap-2.5">
       <label htmlFor="message-input" hidden>
         Add a comment
       </label>
@@ -41,10 +43,11 @@ export default function MessageInput() {
         aria-live="polite"
         aria-label="Add a comment"
         cols={5}
+        rows={rowNumber > maxRows ? maxRows : rowNumber}
         value={values.message}
         onChange={(e) => setFieldValue("message", e.target.value)}
         className={
-          "text-black py-1.5 px-2.5 min-w-24 relative bg-white rounded-3xl border-[0.50px] border-white"
+          "text-black w-full py-2.5 px-3.5 min-w-24 h-fit relative bg-white rounded-3xl border-[0.50px] border-white"
         }
       />
       <SendButton
