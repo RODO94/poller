@@ -13,8 +13,8 @@ export default function ChatCard({ id }: { id: MessageId }) {
   const userId = "99";
   const isUserMessage = profile.id === userId;
 
-  const messagePadding = isUserMessage ? "pl-8" : "pr-8";
-  const pictureOrder = isUserMessage ? "order-3" : "order-1";
+  const messagePadding = isUserMessage ? "pl-8 self-end" : "pr-8";
+  const pictureOrder = isUserMessage ? "order-3 self-start" : "order-1";
 
   return (
     <article
