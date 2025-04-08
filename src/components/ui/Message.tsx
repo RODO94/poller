@@ -1,5 +1,5 @@
 import { MessageId, type Message } from "@/types/chat";
-import ReactionBar from "./ReactionBar";
+import { ReactionBar } from "./ReactionBar";
 
 type MessageProps = {
   message: Message;

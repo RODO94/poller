@@ -1,9 +1,9 @@
 import { MessageId, type Emojis } from "@/types/chat";
 import { Flame, Smile, Heart } from "lucide-react";
-import { JSX } from "react";
+import { JSX, memo } from "react";
 import { useStore } from "../../store/store";
 
-export default function Emoji({
+export const Emoji = memo(function Emoji({
   messageId,
   emoji,
   isActive,
@@ -13,22 +13,6 @@ export default function Emoji({
   isActive: boolean;
   outlineIcon: boolean;
 }) {
-  /**
-   * An emoji should be a set of emojis
-   * that you can select via a prop
-   * and you can choose a variant of
-   * outline or filled
-   */
-
-  /**
-   * Right now when you action an emoji
-   * it refreshes the whole chat history
-   * because that's how I update state because emoji's
-   * are entangled with the message, rather than having a relation
-   * to one
-   *
-   */
-
   const addEmoji = useStore().addEmoji;
   const removeEmoji = useStore().removeEmoji;
 
@@ -67,4 +51,4 @@ export default function Emoji({
       {emojiSet[emoji]}
     </div>
   );
-}
+});
