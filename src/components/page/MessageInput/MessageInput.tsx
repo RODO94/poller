@@ -38,6 +38,8 @@ export default function MessageInput() {
         style={{ width: "100%", fontSize: "10px", resize: "none" }}
         name="message-input"
         id="message-input"
+        aria-live="polite"
+        aria-label="Add a comment"
         cols={5}
         value={values.message}
         onChange={(e) => setFieldValue("message", e.target.value)}

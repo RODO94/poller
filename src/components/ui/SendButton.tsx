@@ -13,6 +13,9 @@ export const SendButton = memo(function SendButton({
     <Button
       style={{ borderRadius: "50%" }}
       id="send"
+      name="send"
+      type="button"
+      aria-label="Send message"
       onClick={() => {
         handleSubmit();
       }}
